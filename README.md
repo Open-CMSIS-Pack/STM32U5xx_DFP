@@ -20,9 +20,16 @@ Directory                   | Description
 
 ## Usage
 
-The device is configured using [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html). For additional information refer to:
+The device is configured using [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) (CubeMX). Refer to [CMSIS-Toolbox - Configure STM32 Devices with CubeMX](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/CubeMX.md) for usage information with *csolution projects*.
 
-- [CMSIS-Toolbox - Configure STM32 Devices with CubeMX](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/CubeMX.md) for usage information of STM32CubeMX with CMSIS projects.
+Add this component to your *csolution project* to connect to CubeMX.
+
+    - component: Device:CubeMX                # Component that connects to CubeMX
+
+> **Important Note:**
+>
+> The DFP **does not** contain [Startup and System Configuration files](https://arm-software.github.io/CMSIS_6/latest/Core/using_pg.html) and **does not** provide the [`CMSIS_device_header`](https://arm-software.github.io/CMSIS_6/latest/Core/using_pg.html#using_packs) provided
+> by the CMSIS-Core that defines the registers and interrupt mapping. This files are provided by the CubeMX firmware pack. It is therefore mandatory to use CubeMX when using this DFP as it will pull-in these files and make it accessible.
 
 ## Using the development repository
 
@@ -34,7 +41,7 @@ This development repository can be used in a local directory and [mapped as soft
 
 The software pack is generated using bash shell scripts.
 
-- `./gen_pack.sh` (provided via [Open-CMSIS-Pack/gen-pack](
+- `./gen_pack.sh` based on [Open-CMSIS-Pack/gen-pack](
 https://github.com/Open-CMSIS-Pack/gen-pack)) generates the software pack. Run this script locally with:
 
       STM32U5xx_DFP $ ./gen_pack.sh
