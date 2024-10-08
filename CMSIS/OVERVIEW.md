@@ -8,6 +8,21 @@ The **STMicroelectronics STM32U5 Series Device Family Pack (DFP)** is a [CMSIS-P
 - Flash algorithms for the on-chip Flash memory.
 - Debug configuration information.
 
+## CMSIS-Driver Support
+
+This DFP is tested with the [CMSIS-Driver_STM32](https://www.keil.arm.com/packs/cmsis-driver_stm32-arm) pack that implements [CMSIS-Driver](https://arm-software.github.io/CMSIS_6/latest/Driver/index.html) interfaces using a shim layer to the STM32Cube HAL. The following drivers are supported.
+
+```yml
+  - component: CMSIS-Driver:Ethernet MAC     # Ethernet MAC Driver for STM32 devices
+  - component: CMSIS-Driver:GPIO             # GPIO Driver for STM32 devices
+  - component: CMSIS-Driver:I2C              # I2C Driver for STM32 devices
+  - component: CMSIS-Driver:MCI              # MCI Driver for STM32 devices
+  - component: CMSIS-Driver:SPI              # SPI Driver for STM32 devices
+  - component: CMSIS-Driver:USART            # USART Driver for STM32 devices
+  - component: CMSIS-Driver:USB Device       # USB Device Driver for STM32 devices
+  - component: CMSIS-Driver:USB Host         # USB Host Driver for STM32 devices
+```
+
 ## CubeMX Support
 
 The device is configured using [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) (CubeMX). Refer to [CMSIS-Toolbox - Configure STM32 Devices with CubeMX](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/CubeMX.md) for usage information with *csolution projects*.
