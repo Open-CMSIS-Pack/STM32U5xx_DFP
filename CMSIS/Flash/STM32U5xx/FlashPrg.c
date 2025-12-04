@@ -427,8 +427,8 @@ int Init (unsigned long adr, unsigned long clk, unsigned long fnc)
 
   while (*pFlashSR & FLASH_SR_BSY) NOP();                /* Wait until operation is finished */
 
-  gFlashBase = adr;
   gFlashSize = (M32(FLASHSIZE_BASE) & 0x0000FFFF) << 10;
+  gFlashBase = (adr & ~(gFlashSize - 1u));
 #endif /* FLASH_MEM */
 
 #if defined FLASH_OPT
